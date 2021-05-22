@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="fragments/base.html :: headerfiles(title=#{pageTitle.persona})"> </head>
+	<link th:href="@{/css/my-style.css}" rel="stylesheet">
+	<head></head>
 <body>
-	<header th:replace="fragments/base.html :: intestazione"></header>
+	<header>
+		<h1>Siw - Spring Very Simple Demo</h1>
+	</header>
     <div>
     	<h4 th:text="#{header.index}">Menu</h4>
 		<div>
@@ -12,6 +15,5 @@
 			<a href="persona">Elenco persone</a>
    		</div>
     </div>
-    <footer th:replace="fragments/base.html :: fondo"></footer>
 </body>
 </html>
