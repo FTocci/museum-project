@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head> </head>
+<body>
+	<header>
+		<h1>Siw - Spring Very Simple Demo[Artista]</h1>
+	</header>
+    <div>
+    	<h4></h4>
+    	
+    	<div th:if="${artista}" th:object="${artista}">
+			<span th:text="*{nome}">qui-va-nome</span>
+			<span th:text="*{cognome}">qui-va-cognome</span>
+   		</div>
+    	<div th:unless="${artista}">Non esiste</div>
+    </div>
+   
+</body>
+</html>

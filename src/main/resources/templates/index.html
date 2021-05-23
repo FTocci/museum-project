@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<link th:href="@{/css/my-style.css}" rel="stylesheet">
+	<link th:href="@{/css/homeCSS.css}" rel="stylesheet">
 	<head></head>
 <body>
+	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
 	<header>
-		<h1>Siw - Spring Very Simple Demo</h1>
+		<div id="head">
+		<span>AUTORI</span>
+		<span>COLLEZIONI</span>
+		<span>INFORMAZIONI</span>
+		</div>
 	</header>
-    <div>
-    	<h4 th:text="#{header.index}">Menu</h4>
+	<section>
+        <h4 th:text="#{header.index}">Menu</h4>
+        <div>
+            <a href="addPersona">Inserisci dati persona</a>
+        </div>
+        <div>
+            <a href="persona">Elenco persone</a>
+        </div>
 		<div>
-			<a href="addPersona">Inserisci dati persona</a>
-   		</div>
+            <a href="addArtista">Inserisci dati artista</a>
+        </div>		
 		<div>
-			<a href="persona">Elenco persone</a>
-   		</div>
-    </div>
+            <a href="artista">Elenco artisti</a>
+        </div>
+    </section>
+    <footer></footer>
 </body>
 </html>

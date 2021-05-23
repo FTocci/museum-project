@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head > </head>
+<body>
+	<header >
+		<h1>Siw - Spring Very Simple Demo[Artisti]</h1>
+	</header>
+	<div>
+    	<h4>List of artists</h4>
+		<ul>
+			<li th:each="artista : ${artisti}">
+				<a href="artista.html" 
+				   th:href="@{'/artista' + '/' + ${artista.id}}" 
+				   th:text="|${artista.nome} ${artista.cognome}|">Paolo Rossi</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

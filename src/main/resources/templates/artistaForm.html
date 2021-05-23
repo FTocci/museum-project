@@ -2,11 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> </head>
 <body>
-	<header> <h1>Siw - Spring Very Simple Demo</h1></header>
+	<header> <h1>Siw - Spring Very Simple Demo[Artista]</h1></header>
 	<div>
-		<h4>Inserisci i dati di una persona</h4>
+		<h4>Inserisci i dati di un artista</h4>
 	</div>
-	<form th:action="@{/persona}" method="POST" th:object="${persona}">
+	<form th:action="@{/artista}" method="POST" th:object="${artista}">
 		<div th:if="${#fields.hasGlobalErrors()}">
   			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 		</div>		
