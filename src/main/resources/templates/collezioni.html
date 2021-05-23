@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head > </head>
+<body>
+	<header >
+		<h1>Siw - Spring Very Simple Demo[Collezioni]</h1>
+	</header>
+	<div>
+    	<h4>Lista di collezioni</h4>
+		<ul>
+			<li th:each="collezione : ${collezioni}">
+				<a href="collezione.html" 
+				   th:href="@{'/collezione' + '/' + ${collezione.id}}" 
+				   th:text="|${collezione.nome} ${collezione.descrizione}|">Paolo Rossi</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

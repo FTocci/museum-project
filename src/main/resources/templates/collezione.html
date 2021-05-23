@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head> </head>
+<body>
+	<header>
+		<h1>Siw - Spring Very Simple Demo[Collezione]</h1>
+	</header>
+    <div>
+    	<h4></h4>
+    	
+    	<div th:if="${collezione}" th:object="${collezione}">
+			<span th:text="*{nome}">qui-va-nome</span>
+			<span th:text="*{descrizione}">qui-va-descrizione</span>
+   		</div>
+    	<div th:unless="${collezione}">Non esiste</div>
+    </div>
+   
+</body>
+</html>
