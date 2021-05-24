@@ -21,6 +21,8 @@ public class Artista {
 	@Column(nullable=false)
 	private String cognome;
 	
+	private String immagine;
+	
 	public long getId() {
 		return id;
 	}
@@ -44,5 +46,15 @@ public class Artista {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
+	}
+	
+	
 
 }

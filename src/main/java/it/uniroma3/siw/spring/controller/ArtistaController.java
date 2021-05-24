@@ -52,7 +52,7 @@ public class ArtistaController {
         if (!bindingResult.hasErrors()) {
         	this.artistaService.inserisci(artista);
             model.addAttribute("artisti", this.artistaService.tutti());
-            return "artista.html";
+            return "artisti.html";
         }
         return "artistaForm.html";
     }

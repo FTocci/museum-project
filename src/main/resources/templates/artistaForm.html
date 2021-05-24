@@ -22,6 +22,11 @@
 				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
 			</div>
 			<div>
+				<span>Immagine:</span>
+				<span><input type="text" th:field="*{immagine}" /></span>
+				<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
+			</div>
+			<div>
 				<span><button type="submit">Invio</button></span>
 			</div>
 		</div>
