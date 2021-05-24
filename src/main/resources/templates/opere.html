@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head > </head>
+<body>
+	<header >
+		<h1>Siw - Spring Very Simple Demo[Opere]</h1>
+	</header>
+	<div>
+    	<h4>List of opere</h4>
+		<ul>
+			<li th:each="opera : ${opere}">
+				<a href="opera.html" 
+				   th:href="@{'/opera' + '/' + ${opera.id}}" 
+				   th:text="|${opera.titolo} ${opera.descrizione}|"></a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
