@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Opera;
@@ -24,9 +25,7 @@ public class CollezioneController {
 	
 	@Autowired
 	private OperaService operaService;
-	
-	private Collezione collCorrente;
-	
+		
     @Autowired
     private CollezioneValidator collezioneValidator;
     
@@ -46,7 +45,6 @@ public class CollezioneController {
     	model.addAttribute("opera", new Opera());
     	model.addAttribute("opere",this.operaService.tutti());
     	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(id).getOpere());
-    	collCorrente=this.collezioneService.collezionePerId(id);
     	return "collezione.html";
     }
 
@@ -68,13 +66,17 @@ public class CollezioneController {
         return "collezioneForm.html";
     }
     
-    @RequestMapping(value = "/addOperaACollezione", method = RequestMethod.POST)
-    public String aggiungiOpera(@ModelAttribute("opera") Opera opera, 
-    									Model model, BindingResult bindingResult) {
-    	collCorrente.getOpere().add(opera);
-    	collezioneService.inserisci(collCorrente);
+    @RequestMapping(value = "/addOperaACollezione/{id}", method = RequestMethod.POST)
+    public String aggiungiOpera(@RequestParam("opera") Long idOpera, 
+    									Model model, @PathVariable("id") Long idCollezione) {
+    	
+    	Collezione c = this.collezioneService.collezionePerId(idCollezione);
+    	c.addOpera(operaService.operaPerId(idOpera));
+    	collezioneService.inserisci(c);
+    	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
+    	model.addAttribute("opera",new Opera());
     	model.addAttribute("opere",this.operaService.tutti());
-    	model.addAttribute("opereCollezione",this.collCorrente.getOpere());
+    	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(idCollezione).getOpere());
     	return "collezione.html";
     	
     }

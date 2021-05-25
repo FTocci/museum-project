@@ -1,10 +1,14 @@
 package it.uniroma3.siw.spring.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
@@ -13,7 +17,7 @@ import javax.persistence.NamedQuery;
 public class Opera {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable=false)
@@ -25,11 +29,16 @@ public class Opera {
 	@Column(nullable=false)
 	private String descrizione;
 	
-	@ManyToOne
-	private Collezione collezione;
+	@ManyToMany(mappedBy="opere")
+	private List<Collezione> collezione;
 	
 	@ManyToOne
 	private Artista artista;
+	
+	public Opera(){
+		collezione=new ArrayList<Collezione>();
+		
+	}
 
 	public long getId() {
 		return id;
@@ -63,13 +72,6 @@ public class Opera {
 		this.descrizione = descrizione;
 	}
 
-	public Collezione getCollezione() {
-		return collezione;
-	}
-
-	public void setCollezione(Collezione collezione) {
-		this.collezione = collezione;
-	}
 
 	public Artista getArtista() {
 		return artista;
@@ -78,6 +80,16 @@ public class Opera {
 	public void setArtista(Artista artista) {
 		this.artista = artista;
 	}
+
+	public List<Collezione> getCollezione() {
+		return collezione;
+	}
+
+	public void setCollezione(List<Collezione> collezione) {
+		this.collezione = collezione;
+	}
+	
+	
 	
 	
 	

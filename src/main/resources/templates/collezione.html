@@ -15,15 +15,17 @@
 		   <br>
 		<div>
 			<p>AGGIUNGI OPERA A COLLEZIONE</p>
-			<select name="opera" roleId="opera" id="opera" th:field="*{opera}">
-			<option value="">---Opera---</option>
-			<option th:each="opera : ${opere}"
-				th:value="${opera.id}"
-				th:text="${opera.titolo}"></option>
-			</select>
-			<div>
-				<a href="addOperaACollezione">Inserisci opera in collezione</a>
-			</div>		
+			<form th:action="@{'/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
+				<select name="opera" id="opera">
+				<option value="">---Opera---</option>
+				<option th:each="opera : ${opere}"
+					th:value="${opera.id}"
+					th:text="${opera.titolo}"></option>
+				</select>
+				<div>
+					<button type="submit" th:text="#{aggiungi.opera}">Inserisci opera in collezione</button>
+				</div>		
+			</form>
 		</div>
 
     	<div th:unless="${collezione}">Non esiste</div>

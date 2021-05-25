@@ -1,5 +1,6 @@
 package it.uniroma3.siw.spring.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,7 +13,7 @@ import javax.persistence.ManyToMany;
 public class Collezione {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable=false)
@@ -21,9 +22,13 @@ public class Collezione {
 	@Column(nullable=false)
 	private String descrizione;
 	
-	@ManyToMany(mappedBy="collezione")
+	@ManyToMany
 	private List<Opera> opere;
 	
+	
+	public Collezione() {
+		opere=new ArrayList<Opera>();
+	}
 
 	public long getId() {
 		return id;
@@ -57,6 +62,9 @@ public class Collezione {
 		this.opere = opere;
 	}
 	
+	public void addOpera(Opera o) {
+		this.opere.add(o);
+	}
 	
 	
 	
