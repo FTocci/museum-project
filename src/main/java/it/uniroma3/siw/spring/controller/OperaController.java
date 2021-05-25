@@ -23,6 +23,7 @@ public class OperaController {
 	
 	@Autowired
 	private ArtistaService artistaService;
+
 	
     @Autowired
     private OperaValidator operaValidator;

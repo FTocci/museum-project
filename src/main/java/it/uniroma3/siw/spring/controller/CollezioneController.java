@@ -12,13 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.spring.model.Collezione;
+import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.service.CollezioneService;
+import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
 public class CollezioneController {
 	
 	@Autowired
 	private CollezioneService collezioneService;
+	
+	@Autowired
+	private OperaService operaService;
+	
+	private Collezione collCorrente;
 	
     @Autowired
     private CollezioneValidator collezioneValidator;
@@ -36,6 +43,10 @@ public class CollezioneController {
     @RequestMapping(value = "/collezione/{id}", method = RequestMethod.GET)
     public String getCollezione(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(id));
+    	model.addAttribute("opera", new Opera());
+    	model.addAttribute("opere",this.operaService.tutti());
+    	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(id).getOpere());
+    	collCorrente=this.collezioneService.collezionePerId(id);
     	return "collezione.html";
     }
 
@@ -56,4 +67,16 @@ public class CollezioneController {
         }
         return "collezioneForm.html";
     }
+    
+    @RequestMapping(value = "/addOperaACollezione", method = RequestMethod.POST)
+    public String aggiungiOpera(@ModelAttribute("opera") Opera opera, 
+    									Model model, BindingResult bindingResult) {
+    	collCorrente.getOpere().add(opera);
+    	collezioneService.inserisci(collCorrente);
+    	model.addAttribute("opere",this.operaService.tutti());
+    	model.addAttribute("opereCollezione",this.collCorrente.getOpere());
+    	return "collezione.html";
+    	
+    }
+    
 }
