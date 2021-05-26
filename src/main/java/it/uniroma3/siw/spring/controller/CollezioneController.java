@@ -70,9 +70,10 @@ public class CollezioneController {
     public String aggiungiOpera(@RequestParam("opera") Long idOpera, 
     									Model model, @PathVariable("id") Long idCollezione) {
     	
+    	Opera o=operaService.operaPerId(idOpera);
     	Collezione c = this.collezioneService.collezionePerId(idCollezione);
-    	c.addOpera(operaService.operaPerId(idOpera));
-    	collezioneService.inserisci(c);
+    	o.setCollezione(c);
+    	operaService.inserisci(o);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
     	model.addAttribute("opera",new Opera());
     	model.addAttribute("opere",this.operaService.filtraLista(c.getOpere()));

@@ -62,4 +62,13 @@ public class OperaController {
         }
         return "operaForm.html";
     }
+    
+    @RequestMapping(value = "/eliminaOpera/{id}", method = RequestMethod.POST)
+    public String eliminaOpera(Model model, @PathVariable("id") Long idOpera) {
+    		
+    		Opera o=operaService.operaPerId(idOpera);
+    		operaService.eliminaOpera(o);
+    		model.addAttribute("opere", this.operaService.tutti());
+    		return "opere.html";
+    }
 }

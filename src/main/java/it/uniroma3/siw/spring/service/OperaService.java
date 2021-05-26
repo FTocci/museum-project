@@ -60,5 +60,10 @@ public class OperaService {
 		return opere;
 	}
 	
+	@Transactional
+	public void eliminaOpera(Opera o) {
+		operaRepository.delete(o);
+	}
+	
 
 }

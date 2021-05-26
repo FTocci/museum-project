@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 @Entity
 public class Collezione {
 
@@ -22,7 +22,7 @@ public class Collezione {
 	@Column(nullable=false)
 	private String descrizione;
 	
-	@ManyToMany
+	@OneToMany(mappedBy="collezione")
 	private List<Opera> opere;
 	
 	
