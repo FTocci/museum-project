@@ -12,8 +12,20 @@
 			<span th:text="*{nome}">qui-va-nome</span>
 			<span th:text="*{descrizione}">qui-va-descrizione</span>
    		</div>
-		   <br>
 		<div>
+			<ul>
+				<li th:each="opera : ${opereCollezione}">
+					<a href="opera.html" 
+					   th:href="@{'/opera' + '/' + ${opera.id}}" 
+					   th:text="|${opera.titolo}|"
+					   th:value="${opera.id}"></a>
+				</li>
+			</ul>
+		</div>
+		   <br>
+		
+	   <div>
+		
 			<p>AGGIUNGI OPERA A COLLEZIONE</p>
 			<form th:action="@{'/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
 				<select name="opera" id="opera">
@@ -23,9 +35,24 @@
 					th:text="${opera.titolo}"></option>
 				</select>
 				<div>
-					<button type="submit" th:text="#{aggiungi.opera}">Inserisci opera in collezione</button>
+					<button type="submit" th:text="#{aggiungi.opera}"></button>
 				</div>		
 			</form>
+		</div>
+		<div>
+			<p>RIMUOVI OPERA A COLLEZIONE</p>
+			<form th:action="@{'/rimuoviOpera' + '/' + ${collezione.id}}" method="POST" >
+				<select name="opera" id="opera">
+				<option value="">---Opera---</option>
+				<option th:each="opera : ${opereCollezione}"
+					th:value="${opera.id}"
+					th:text="${opera.titolo}"></option>
+				</select>
+				<div>
+					<button type="submit" th:text="#{rimuovi}"></button>
+				</div>		
+			</form>
+		
 		</div>
 
     	<div th:unless="${collezione}">Non esiste</div>

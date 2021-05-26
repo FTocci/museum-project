@@ -49,5 +49,16 @@ public class OperaService {
 		else 
 			return false;
 	}
+	
+	
+	@Transactional
+	public List<Opera> filtraLista(List<Opera> lista) {
+		List<Opera> opere=this.tutti();
+		for(Opera o:lista) {
+			opere.remove(o);
+		}
+		return opere;
+	}
+	
 
 }

@@ -75,10 +75,23 @@ public class CollezioneController {
     	collezioneService.inserisci(c);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
     	model.addAttribute("opera",new Opera());
-    	model.addAttribute("opere",this.operaService.tutti());
-    	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(idCollezione).getOpere());
+    	model.addAttribute("opere",this.operaService.filtraLista(c.getOpere()));
+    	model.addAttribute("opereCollezione",c.getOpere());
     	return "collezione.html";
     	
+    }
+    
+    @RequestMapping(value = "/rimuoviOpera/{id}", method = RequestMethod.POST)
+    public String rimuoviOpera(@RequestParam("opera") Long idOpera, 
+    									Model model, @PathVariable("id") Long idCollezione) {
+    	Collezione c = this.collezioneService.collezionePerId(idCollezione);
+    	c.rimuoviOpera(operaService.operaPerId(idOpera));
+    	collezioneService.inserisci(c);
+    	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
+    	model.addAttribute("opera",new Opera());
+    	model.addAttribute("opere",this.operaService.filtraLista(c.getOpere()));
+    	model.addAttribute("opereCollezione",c.getOpere());
+    	return "collezione.html";
     }
     
 }

@@ -66,6 +66,10 @@ public class Collezione {
 		this.opere.add(o);
 	}
 	
+	public void rimuoviOpera(Opera o) {
+		this.opere.remove(o);
+	}
+	
 	
 	
 }

@@ -45,7 +45,7 @@ public class OperaController {
     	return "opera.html";
     }
 
-    @RequestMapping(value = "/opera", method = RequestMethod.GET)
+    @RequestMapping(value = "/opere", method = RequestMethod.GET)
     public String getOpere(Model model) {
     		model.addAttribute("opere", this.operaService.tutti());
     		return "opere.html";
