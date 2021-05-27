@@ -15,7 +15,7 @@
 			<span th:text="*{artista.nome}">qui-va-artista</span>
 		</div>
     	<div th:unless="${opera}">Non esiste</div>
-		<form th:action="@{'/eliminaOpera' + '/' + ${opera.id}}" method="POST">
+		<form th:action="@{'/admin/eliminaOpera' + '/' + ${opera.id}}" method="POST">
 			<button type="submit" th:text="#{elimina.opera}"></button>
 		</form>
 	</div>

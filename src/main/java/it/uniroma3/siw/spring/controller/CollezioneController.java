@@ -32,7 +32,7 @@ public class CollezioneController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
 
-    @RequestMapping(value="/addCollezione", method = RequestMethod.GET)
+    @RequestMapping(value="/admin/addCollezione", method = RequestMethod.GET)
     public String addCollezione(Model model) {
     	logger.debug("addCollezione");
     	model.addAttribute("collezione", new Collezione());
@@ -54,7 +54,7 @@ public class CollezioneController {
     		return "collezioni.html";
     }
     
-    @RequestMapping(value = "/collezione", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/collezione", method = RequestMethod.POST)
     public String newPersona(@ModelAttribute("collezione") Collezione collezione, 
     									Model model, BindingResult bindingResult) {
     	this.collezioneValidator.validate(collezione, bindingResult);
@@ -66,7 +66,7 @@ public class CollezioneController {
         return "collezioneForm.html";
     }
     
-    @RequestMapping(value = "/addOperaACollezione/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/addOperaACollezione/{id}", method = RequestMethod.POST)
     public String aggiungiOpera(@RequestParam("opera") Long idOpera, 
     									Model model, @PathVariable("id") Long idCollezione) {
     	
@@ -82,7 +82,7 @@ public class CollezioneController {
     	
     }
     
-    @RequestMapping(value = "/rimuoviOpera/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/rimuoviOpera/{id}", method = RequestMethod.POST)
     public String rimuoviOpera(@RequestParam("opera") Long idOpera, 
     									Model model, @PathVariable("id") Long idCollezione) {
     	Collezione c = this.collezioneService.collezionePerId(idCollezione);

@@ -27,7 +27,7 @@
 	   <div>
 		
 			<p>AGGIUNGI OPERA A COLLEZIONE</p>
-			<form th:action="@{'/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
+			<form th:action="@{'/admin/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
 				<select name="opera" id="opera">
 				<option value="">---Opera---</option>
 				<option th:each="opera : ${opere}"
@@ -41,7 +41,7 @@
 		</div>
 		<div>
 			<p>RIMUOVI OPERA A COLLEZIONE</p>
-			<form th:action="@{'/rimuoviOpera' + '/' + ${collezione.id}}" method="POST" >
+			<form th:action="@{'/admin/rimuoviOpera' + '/' + ${collezione.id}}" method="POST" >
 				<select name="opera" id="opera">
 				<option value="">---Opera---</option>
 				<option th:each="opera : ${opereCollezione}"

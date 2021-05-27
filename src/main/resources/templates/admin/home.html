@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head> </head>
+<body>
+	<header ></header>
+    <section>
+        <h4 th:text="#{header.index}">Menu</h4>
+		<div>
+            <a href="/admin/addArtista">Inserisci dati artista</a>
+        </div>		
+		<div>
+            <a href="artista">Elenco artisti</a>
+        </div>
+        <div>
+            <a href="/admin/addCollezione">Inserisci dati collezione</a>
+        </div>		
+		<div>
+            <a href="collezione">Elenco collezioni</a>
+        </div>
+        <div>
+            <a href="/admin/addOpera">Inserisci dati opera</a>
+        </div>		
+		<div>
+            <a href="opere">Elenco opere</a>
+        </div>
+        <div>
+			<a th:href="@{/logout}">Logout</a>
+   		</div>
+        
+    </section>
+    <footer></footer>
+</body>
+</html>

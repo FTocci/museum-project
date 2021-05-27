@@ -10,7 +10,6 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.spring.model.Opera;
-import it.uniroma3.siw.spring.model.Persona;
 import it.uniroma3.siw.spring.service.OperaService;
 
 
@@ -38,6 +37,6 @@ public class OperaValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> aClass) {
-		return Persona.class.equals(aClass);
+		return Opera.class.equals(aClass);
 	}
 }
