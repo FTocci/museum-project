@@ -22,6 +22,14 @@
 				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
 			</div>
 			<div>
+                <select name="curatore" id="curatore" th:field="*{curatore}">
+                <option value="">---Curatore---</option>
+                <option th:each="curatore : ${curatori}"
+                    th:value="${curatore.id}"
+                    th:text="${curatore.nome}"></option>
+            	</select>
+            </div>
+			<div>
 				<span><button type="submit">Invio</button></span>
 			</div>
 		</div>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import it.uniroma3.siw.spring.model.Collezione;
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.service.CollezioneService;
+import it.uniroma3.siw.spring.service.CuratoreService;
 import it.uniroma3.siw.spring.service.OperaService;
 
 @Controller
@@ -25,7 +26,10 @@ public class CollezioneController {
 	
 	@Autowired
 	private OperaService operaService;
-		
+	
+	@Autowired
+	private CuratoreService curatoreService;	
+	
     @Autowired
     private CollezioneValidator collezioneValidator;
     
@@ -36,6 +40,7 @@ public class CollezioneController {
     public String addCollezione(Model model) {
     	logger.debug("addCollezione");
     	model.addAttribute("collezione", new Collezione());
+    	model.addAttribute("curatori",curatoreService.tutti());
         return "collezioneForm.html";
     }
 
@@ -55,7 +60,7 @@ public class CollezioneController {
     }
     
     @RequestMapping(value = "/admin/collezione", method = RequestMethod.POST)
-    public String newPersona(@ModelAttribute("collezione") Collezione collezione, 
+    public String newCollezione(@ModelAttribute("collezione") Collezione collezione, 
     									Model model, BindingResult bindingResult) {
     	this.collezioneValidator.validate(collezione, bindingResult);
         if (!bindingResult.hasErrors()) {

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 @Entity
 public class Collezione {
@@ -25,6 +26,8 @@ public class Collezione {
 	@OneToMany(mappedBy="collezione")
 	private List<Opera> opere;
 	
+	@ManyToOne
+	private Curatore curatore;
 	
 	public Collezione() {
 		opere=new ArrayList<Opera>();
@@ -69,7 +72,14 @@ public class Collezione {
 	public void rimuoviOpera(Opera o) {
 		this.opere.remove(o);
 	}
-	
+
+	public Curatore getCuratore() {
+		return curatore;
+	}
+
+	public void setCuratore(Curatore curatore) {
+		this.curatore = curatore;
+	}
 	
 	
 }

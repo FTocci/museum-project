@@ -4,8 +4,8 @@
 	<head></head>
 <body>
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-	<header>
-        <div>
+	<header>		
+    	<div>
 			<a th:href="@{/login}" th:text="#{index.login}">Accedi</a>
    		</div>
 		<div>
@@ -13,31 +13,12 @@
    		</div>
 		<div id="head">
 		<span><a href="artista">AUTORI</a></span>
-		<span>COLLEZIONI</span>
-		<span>INFORMAZIONI</span>
+		<span><a href="collezione">COLLEZIONI</a></span>
+		<span><a href="opere">OPERE</a></span>
 		</div>
 	</header>
 	<section>
-        <h4 th:text="#{header.index}">Menu</h4>
-		<div>
-            <a href="addArtista">Inserisci dati artista</a>
-        </div>		
-		<div>
-            <a href="artista">Elenco artisti</a>
-        </div>
-        <div>
-            <a href="addCollezione">Inserisci dati collezione</a>
-        </div>		
-		<div>
-            <a href="collezione">Elenco collezioni</a>
-        </div>
-        <div>
-            <a href="addOpera">Inserisci dati opera</a>
-        </div>		
-		<div>
-            <a href="opere">Elenco opere</a>
-        </div>
-        
+ 
         
     </section>
     <footer></footer>
