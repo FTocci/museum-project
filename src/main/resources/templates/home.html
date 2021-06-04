@@ -4,8 +4,11 @@
 <body>
 	<header ></header>
     <section>
-        <h4 th:text="#{header.index}">Admin Interface</h4>
-				
+        <h4 th:text="#{header.index}">Homepage</h4>
+        <h1>Ciao <span th:text="${credentials.username}">qui-va-username</span>!</h1>
+		<div>
+            <span th:if="${credentials.role == 'ADMIN'}"><a href="/adminPanel">Admin Panel</a></span>
+        </div>		
 		<div>
             <a href="artista">Elenco artisti</a>
         </div>

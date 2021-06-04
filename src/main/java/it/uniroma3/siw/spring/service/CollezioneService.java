@@ -24,6 +24,13 @@ public class CollezioneService {
 	@Autowired
 	private CuratoreService curatoreService;
 	
+	@Autowired
+	private CredentialsService credentialsService;
+	
+	public CredentialsService getCredentialsService() {
+		return credentialsService;
+	}
+
 	public OperaService getOperaService() {
 		return operaService;
 	}

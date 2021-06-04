@@ -50,10 +50,13 @@ public class AuthenticationController {
         
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = credentialsService.getCredentials(userDetails.getUsername());
-    	if (credentials.getRole().equals(Credentials.ADMIN_ROLE)) {
-            return "admin/home";
-        }
+    	model.addAttribute("credentials", credentials);
         return "home";
+    }
+    
+    @RequestMapping(value = "/adminPanel")
+    public String getAdminPanel() {
+    	return "/admin/home";
     }
 	
     @RequestMapping(value = { "/register" }, method = RequestMethod.POST)
