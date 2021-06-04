@@ -24,11 +24,6 @@ public class CollezioneController {
 	@Autowired
 	private CollezioneService collezioneService;
 	
-	@Autowired
-	private OperaService operaService;
-	
-	@Autowired
-	private CuratoreService curatoreService;	
 	
     @Autowired
     private CollezioneValidator collezioneValidator;
@@ -40,7 +35,7 @@ public class CollezioneController {
     public String addCollezione(Model model) {
     	logger.debug("addCollezione");
     	model.addAttribute("collezione", new Collezione());
-    	model.addAttribute("curatori",curatoreService.tutti());
+    	model.addAttribute("curatori",collezioneService.getCuratoreService().tutti());
         return "collezioneForm.html";
     }
 
@@ -48,7 +43,7 @@ public class CollezioneController {
     public String getCollezione(@PathVariable("id") Long id, Model model) {
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(id));
     	model.addAttribute("opera", new Opera());
-    	model.addAttribute("opere",this.operaService.tutti());
+    	model.addAttribute("opere",this.collezioneService.getOperaService().tutti());
     	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(id).getOpere());
     	return "collezione.html";
     }
@@ -75,13 +70,13 @@ public class CollezioneController {
     public String aggiungiOpera(@RequestParam("opera") Long idOpera, 
     									Model model, @PathVariable("id") Long idCollezione) {
     	
-    	Opera o=operaService.operaPerId(idOpera);
+    	Opera o=collezioneService.getOperaService().operaPerId(idOpera);
     	Collezione c = this.collezioneService.collezionePerId(idCollezione);
     	o.setCollezione(c);
-    	operaService.inserisci(o);
+    	collezioneService.getOperaService().inserisci(o);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
     	model.addAttribute("opera",new Opera());
-    	model.addAttribute("opere",this.operaService.filtraLista(c.getOpere()));
+    	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
     	model.addAttribute("opereCollezione",c.getOpere());
     	return "collezione.html";
     	
@@ -91,11 +86,11 @@ public class CollezioneController {
     public String rimuoviOpera(@RequestParam("opera") Long idOpera, 
     									Model model, @PathVariable("id") Long idCollezione) {
     	Collezione c = this.collezioneService.collezionePerId(idCollezione);
-    	c.rimuoviOpera(operaService.operaPerId(idOpera));
+    	c.rimuoviOpera(collezioneService.getOperaService().operaPerId(idOpera));
     	collezioneService.inserisci(c);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
     	model.addAttribute("opera",new Opera());
-    	model.addAttribute("opere",this.operaService.filtraLista(c.getOpere()));
+    	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
     	model.addAttribute("opereCollezione",c.getOpere());
     	return "collezione.html";
     }

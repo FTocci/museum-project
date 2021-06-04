@@ -21,10 +21,6 @@ public class OperaController {
 	@Autowired
 	private OperaService operaService;
 	
-	@Autowired
-	private ArtistaService artistaService;
-
-	
     @Autowired
     private OperaValidator operaValidator;
     
@@ -35,7 +31,7 @@ public class OperaController {
     public String addOpera(Model model) {
     	logger.debug("addOpera");
     	model.addAttribute("opera", new Opera());
-    	model.addAttribute("artisti", artistaService.tutti());
+    	model.addAttribute("artisti", operaService.getArtistaService().tutti());
         return "operaForm.html";
     }
 

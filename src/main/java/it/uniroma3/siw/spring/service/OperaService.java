@@ -17,6 +17,13 @@ public class OperaService {
 	@Autowired
 	private OperaRepository operaRepository; 
 	
+	@Autowired
+	private ArtistaService artistaService;
+	
+	public ArtistaService getArtistaService() {
+		return artistaService;
+	}
+
 	@Transactional
 	public Opera inserisci(Opera opera) {
 		return operaRepository.save(opera);
