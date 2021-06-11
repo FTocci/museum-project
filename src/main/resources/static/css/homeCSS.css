@@ -39,5 +39,37 @@ footer{
 	background-color:#B08968;
 }
 
+#scroll {
+	
+	height:530px;
+	margin:0px auto;
+	background:#ffffff;
+	overflow-y:hidden
+	
+	}
+	#scroll ul {
+	float:left;
+	margin-right:-999em;
+	white-space:nowrap;
+	list-style:none;
+	}
+	#scroll li {
+	margin:15px;
+	text-align:center;
+	float:left;
+	display:inline;
+	}
+	#scroll img {
+	border:0;
+	display:block;
+	margin:0px auto;
+	}
+	
+	#scroll span {
+	padding:100px 0 0;
+	display:block;
+	
+	}
+
 
 
