@@ -25,8 +25,7 @@
 		</div>
 		   <br>
 		
-	   <div>
-		
+		<div th:if="${credentials.role == 'ADMIN'}">
 			<p>AGGIUNGI OPERA A COLLEZIONE</p>
 			<form th:action="@{'/admin/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
 				<select name="opera" id="opera">
@@ -40,7 +39,7 @@
 				</div>		
 			</form>
 		</div>
-		<div>
+		<div th:if="${credentials.role == 'ADMIN'}">
 			<p>RIMUOVI OPERA A COLLEZIONE</p>
 			<form th:action="@{'/admin/rimuoviOpera' + '/' + ${collezione.id}}" method="POST" >
 				<select name="opera" id="opera">

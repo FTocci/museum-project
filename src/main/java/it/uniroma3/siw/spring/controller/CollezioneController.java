@@ -3,6 +3,8 @@ package it.uniroma3.siw.spring.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.spring.model.Collezione;
+import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.service.CollezioneService;
 import it.uniroma3.siw.spring.service.CuratoreService;
@@ -45,6 +48,11 @@ public class CollezioneController {
     	model.addAttribute("opera", new Opera());
     	model.addAttribute("opere",this.collezioneService.getOperaService().tutti());
     	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(id).getOpere());
+    	
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
+    	model.addAttribute("credentials", credentials);
+    	
     	return "collezione.html";
     }
 

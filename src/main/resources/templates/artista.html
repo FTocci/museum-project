@@ -13,8 +13,19 @@
 			<span th:text="*{cognome}">qui-va-cognome</span>
 			<img th:src="@{${'/images/'+artista.immagine}}"/>
 		</div>
+		<div>
+			<ul>
+				<li th:each="opera : ${opereArtista}">
+					<a href="opera.html" 
+					   th:href="@{'/opera' + '/' + ${opera.id}}" 
+					   th:text="|${opera.titolo}|"
+					   th:value="${opera.id}"></a>
+				</li>
+			</ul>
+		</div>
     	<div th:unless="${artista}">Non esiste</div>
     </div>
+
 	<footer><a href="/default">Home</a></footer>
 
 </body>

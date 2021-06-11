@@ -60,6 +60,16 @@ public class Artista {
 	public void setImmagine(String immagine) {
 		this.immagine = immagine;
 	}
+
+	public List<Opera> getOpere() {
+		return opere;
+	}
+
+	public void setOpere(List<Opera> opere) {
+		this.opere = opere;
+	}
+	
+	
 	
 	
 

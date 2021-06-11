@@ -20,6 +20,9 @@ public class OperaService {
 	@Autowired
 	private ArtistaService artistaService;
 	
+	@Autowired
+	private CredentialsService credentialsService;
+	
 	public ArtistaService getArtistaService() {
 		return artistaService;
 	}
@@ -71,6 +74,20 @@ public class OperaService {
 	public void eliminaOpera(Opera o) {
 		operaRepository.delete(o);
 	}
+
+	public CredentialsService getCredentialsService() {
+		return credentialsService;
+	}
+
+	public void setCredentialsService(CredentialsService credentialsService) {
+		this.credentialsService = credentialsService;
+	}
+
+	public void setArtistaService(ArtistaService artistaService) {
+		this.artistaService = artistaService;
+	}
+
+
 	
 
 }
