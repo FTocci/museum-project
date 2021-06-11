@@ -4,23 +4,19 @@
 	<head></head>
 <body>
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-	<header>		
-    	<div>
+	<header>	
+		<div class="headerButtons">
 			<a th:href="@{/login}" th:text="#{index.login}">Accedi</a>
-   		</div>
-		<div>
-			<a th:href="@{/register}" th:text="#{index.register}">Registrati</a>
-   		</div>
-		<div id="head">
-		<span><a href="artista">AUTORI</a></span>
-		<span><a href="collezione">COLLEZIONI</a></span>
-		<span><a href="opere">OPERE</a></span>
-		</div>
+			<a th:href="@{/register}" th:text="#{index.register}">Registrati</a>	
+		</div>	
 	</header>
 	<section>
- 
-        
-    </section>
+		<div class="flex-container">
+			<img th:src="@{${'/images/erPupone.jpeg'}}"/>
+			<img th:src="@{${'/images/sea.jpeg'}}"/>
+			<img th:src="@{${'/images/erPupone.jpeg'}}"/>
+		</div>
+	</section>
     <footer></footer>
 </body>
 </html>

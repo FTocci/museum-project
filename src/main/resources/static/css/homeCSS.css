@@ -1,40 +1,43 @@
+body{
+	background-color:#EDE0D4;
+}
 nav{
 	height: 75px;
-	background-color: #a2b9bc;
+	background-color: #E6CCB2;
 	text-align:center;
 	font-size:30px;
 	font-family:Arial;
 }
 .titolo{
-	padding-top:10px;
-	font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	padding-top:15px;
+	font-family:Arial, Helvetica, sans-serif;
 	font-weight:bold;
 	font-size:40px;
 }
 header{
 	height: 50px;
-	background-color: #b2ad7f;
+	background-color:#DDB892;
+}
+.headerButtons{
+	padding-top: 15px;
+	padding-left: 5px;
+
 }
 
-section{
-	margin-top:75px;
-	margin-bottom:75px;
-	height:500px;
-	background-color:#878f99;
+.flex-container{
+	display: flex;
+	border:2px solid;
+}
+
+img{
+	margin:15px;
+	height:300px;
 }
 
 footer{
 	height:100px;
-	background-color:#6b5b95;
+	background-color:#B08968;
 }
 
-#head{
-	font-size:15px;
-	font-family:Arial;
-	margin:5px;
-	font-weight:bold;	
-	padding-top:18px;
-	margin-right:20px;
-	text-align:right;
-}
+
 
