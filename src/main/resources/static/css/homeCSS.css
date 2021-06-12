@@ -43,33 +43,29 @@ footer{
 	
 	height:530px;
 	margin:0px auto;
-	background:#ffffff;
+	background:#EDE0D4;
 	overflow-y:hidden
 	
-	}
-	#scroll ul {
+}
+#scroll ul {
 	float:left;
 	margin-right:-999em;
 	white-space:nowrap;
 	list-style:none;
-	}
-	#scroll li {
+}
+#scroll li {
 	margin:15px;
 	text-align:center;
 	float:left;
 	display:inline;
-	}
-	#scroll img {
+}
+#scroll img {
 	border:0;
 	display:block;
 	margin:0px auto;
-	}
+}
 	
-	#scroll span {
+#scroll span {
 	padding:100px 0 0;
-	display:block;
-	
-	}
-
-
-
+	display:block;	
+}
