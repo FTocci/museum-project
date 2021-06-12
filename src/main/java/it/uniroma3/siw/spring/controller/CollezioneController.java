@@ -48,11 +48,10 @@ public class CollezioneController {
     	model.addAttribute("opera", new Opera());
     	model.addAttribute("opere",this.collezioneService.getOperaService().tutti());
     	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(id).getOpere());
-    	
+   
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
     	model.addAttribute("credentials", credentials);
-    	
     	return "collezione.html";
     }
 
@@ -83,9 +82,12 @@ public class CollezioneController {
     	o.setCollezione(c);
     	collezioneService.getOperaService().inserisci(o);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
-    	model.addAttribute("opera",new Opera());
     	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
     	model.addAttribute("opereCollezione",c.getOpere());
+    	
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
+    	model.addAttribute("credentials", credentials);
     	return "collezione.html";
     	
     }
@@ -97,9 +99,12 @@ public class CollezioneController {
     	c.rimuoviOpera(collezioneService.getOperaService().operaPerId(idOpera));
     	collezioneService.inserisci(c);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
-    	model.addAttribute("opera",new Opera());
     	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
     	model.addAttribute("opereCollezione",c.getOpere());
+    	
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
+    	model.addAttribute("credentials", credentials);
     	return "collezione.html";
     }
     
