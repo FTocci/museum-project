@@ -44,10 +44,11 @@ public class CollezioneController {
 
     @RequestMapping(value = "/collezione/{id}", method = RequestMethod.GET)
     public String getCollezione(@PathVariable("id") Long id, Model model) {
-    	model.addAttribute("collezione", this.collezioneService.collezionePerId(id));
+    	Collezione c = this.collezioneService.collezionePerId(id);
+    	model.addAttribute("collezione", c);
     	model.addAttribute("opera", new Opera());
-    	model.addAttribute("opere",this.collezioneService.getOperaService().tutti());
-    	model.addAttribute("opereCollezione",this.collezioneService.collezionePerId(id).getOpere());
+    	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
+    	model.addAttribute("opereCollezione",c.getOpere());
    
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
@@ -96,9 +97,10 @@ public class CollezioneController {
     public String rimuoviOpera(@RequestParam("opera") Long idOpera, 
     									Model model, @PathVariable("id") Long idCollezione) {
     	Collezione c = this.collezioneService.collezionePerId(idCollezione);
-    	c.rimuoviOpera(collezioneService.getOperaService().operaPerId(idOpera));
-    	collezioneService.inserisci(c);
-    	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
+    	Opera o=collezioneService.getOperaService().operaPerId(idOpera);
+    	o.setCollezione(null);
+    	collezioneService.getOperaService().inserisci(o);
+    	model.addAttribute("collezione", c);
     	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
     	model.addAttribute("opereCollezione",c.getOpere());
     	
