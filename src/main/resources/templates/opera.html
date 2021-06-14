@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head> </head>
+	<link th:href="@{/css/operaCSS.css}" rel="stylesheet">
 <body>
-	<header>
-		<h1>Siw - Spring Very Simple Demo[Opera]</h1>
-	</header>
-    <div>
-    	<h4></h4>
-    	
-    	<div th:if="${opera}" th:object="${opera}">
-			<span th:text="*{titolo}">qui-va-titolo</span><br>
-			<span th:text="*{descrizione}">qui-va-descrizione</span><br>
-			<img th:src="@{${'/images/'+opera.immagine}}"/><br>
-			<span>
-				<a href="artista.html" 
-				   th:href="@{'/artista' + '/' + ${artista.id}}" 
-				   th:text="|${artista.nome} ${artista.cognome}|"></a>
-			</span>
+	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
+    <section>
+    		<div th:if="${opera}" th:object="${opera}" class="flex-container">
+				<div><img th:src="@{${'/images/'+opera.immagine}}"/></div>
+				<div class="info">
+					<span th:text="*{titolo}">qui-va-titolo</span><br>
+					<span th:text="*{descrizione}">qui-va-descrizione</span><br>
+					<span>
+						<a href="artista.html" 
+					   	th:href="@{'/artista' + '/' + ${artista.id}}" 
+						th:text="|${artista.nome} ${artista.cognome}|"></a>
+					</span>
+				</div>
+			</div>
+    		<div th:unless="${opera}">Non esiste</div>
+			<form th:if="${credentials.role == 'ADMIN'}" th:action="@{'/admin/eliminaOpera' + '/' + ${opera.id}}" method="POST">
+				<button type="submit" th:text="#{elimina.opera}"></button>
+			</form>
+	</section>
+	<footer>
+		<div class="footerButton">
+			<a href="/default">Home</a>
 		</div>
-    	<div th:unless="${opera}">Non esiste</div>
-		<form th:if="${credentials.role == 'ADMIN'}" th:action="@{'/admin/eliminaOpera' + '/' + ${opera.id}}" method="POST">
-			<button type="submit" th:text="#{elimina.opera}"></button>
-		</form>
-	</div>
-
-	<footer><a href="/default">Home</a></footer>
+	</footer>
 
 </body>
 </html>

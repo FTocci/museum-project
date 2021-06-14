@@ -1,0 +1,44 @@
+body{
+	background-color:#EDE0D4;
+}
+nav{
+	height: 75px;
+	background-color: #E6CCB2;
+	text-align:center;
+	font-size:30px;
+	font-family:Arial;
+}
+.titolo{
+	padding-top:15px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:40px;
+}
+
+.flex-container{
+	display: flex;
+	border:2px solid;
+    margin-left: 50px;
+     margin-right: 50px;
+}
+
+img{
+	margin:15px;
+	height:300px;
+}
+
+footer{
+	height:30px;
+	background-color:#B08968;
+}
+
+.info{
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 50px;
+    padding-left: 10px;
+}
+
+.footerButton{
+    padding-left: 10px;
+    padding-top: 7px;
+}

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head> </head>
+	<link th:href="@{/css/collezioneCSS.css}" rel="stylesheet">
 <body>
-	<header>
-		<h1>Siw - Spring Very Simple Demo[Collezione]</h1>
-	</header>
-    <div>
-    	<h4></h4>
-    	
-    	<div th:if="${collezione}" th:object="${collezione}">
-			<span th:text="*{nome}">qui-va-nome</span>
-			<span th:text="*{descrizione}">qui-va-descrizione</span>
+	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
+    <div style="display: flex; justify-content: center;">
+    	<div th:if="${collezione}" th:object="${collezione}" class="box">
+		<p><b>LA COLLEZIONE:</b></p>
+			<span th:text="*{nome}">qui-va-nome</span><br>
+			<span th:text="*{descrizione}">qui-va-descrizione</span><br>
 			<span th:text="*{curatore.nome}">qui-va-curatore</span>
    		</div>
-		<div>
+		<div class="box">
+			<p><b>LE OPERE:</b></p>
 			<ul>
 				<li th:each="opera : ${opereCollezione}">
 					<a href="opera.html" 
@@ -23,40 +21,45 @@
 				</li>
 			</ul>
 		</div>
-		   <br>
+		<br>
+		<div class="box">
+			<div th:if="${credentials.role == 'ADMIN'}">
+				<p><b>AGGIUNGI OPERA A COLLEZIONE</b></p>
+				<form th:action="@{'/admin/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
+					<select name="opera" id="opera">
+					<option value="">---Opera---</option>
+					<option th:each="opera : ${opere}"
+						th:value="${opera.id}"
+						th:text="${opera.titolo}"></option>
+					</select>
+					<div>
+						<button type="submit" th:text="#{aggiungi.opera}"></button>
+					</div>		
+				</form>
+			</div>
+			<div th:if="${credentials.role == 'ADMIN'}">
+				<p><b>RIMUOVI OPERA A COLLEZIONE</b></p>
+				<form th:action="@{'/admin/rimuoviOpera' + '/' + ${collezione.id}}" method="POST" >
+					<select name="opera" id="opera">
+					<option value="">---Opera---</option>
+					<option th:each="opera : ${opereCollezione}"
+						th:value="${opera.id}"
+						th:text="${opera.titolo}"></option>
+					</select>
+					<div>
+						<button type="submit" th:text="#{rimuovi}"></button>
+					</div>		
+				</form>
 		
-		<div th:if="${credentials.role == 'ADMIN'}">
-			<p>AGGIUNGI OPERA A COLLEZIONE</p>
-			<form th:action="@{'/admin/addOperaACollezione' + '/' + ${collezione.id}}" method="POST" >
-				<select name="opera" id="opera">
-				<option value="">---Opera---</option>
-				<option th:each="opera : ${opere}"
-					th:value="${opera.id}"
-					th:text="${opera.titolo}"></option>
-				</select>
-				<div>
-					<button type="submit" th:text="#{aggiungi.opera}"></button>
-				</div>		
-			</form>
-		</div>
-		<div th:if="${credentials.role == 'ADMIN'}">
-			<p>RIMUOVI OPERA A COLLEZIONE</p>
-			<form th:action="@{'/admin/rimuoviOpera' + '/' + ${collezione.id}}" method="POST" >
-				<select name="opera" id="opera">
-				<option value="">---Opera---</option>
-				<option th:each="opera : ${opereCollezione}"
-					th:value="${opera.id}"
-					th:text="${opera.titolo}"></option>
-				</select>
-				<div>
-					<button type="submit" th:text="#{rimuovi}"></button>
-				</div>		
-			</form>
-		
+			</div>
 		</div>
 
     	<div th:unless="${collezione}">Non esiste</div>
     </div>
-	<footer><a href="/default">Home</a></footer>
+	<footer>
+		<div class="footerButton">
+			<a href="/default">Home</a>
+		</div>
+	</footer>
 </body>
 </html>
