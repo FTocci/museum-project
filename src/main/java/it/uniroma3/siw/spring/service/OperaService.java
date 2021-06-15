@@ -1,5 +1,6 @@
 package it.uniroma3.siw.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,7 +65,7 @@ public class OperaService {
 	@Transactional
 	public List<Opera> filtraLista(List<Opera> lista) {
 		List<Opera> opere=this.tutti();
-		for(Opera o:lista) {
+		for(Opera o:lista) {	//rimuovo opere che appartengono già alla collezione
 			opere.remove(o);
 		}
 		return opere;
@@ -73,6 +74,16 @@ public class OperaService {
 	@Transactional
 	public void eliminaOpera(Opera o) {
 		operaRepository.delete(o);
+	}
+	
+	@Transactional
+	public List<Opera> getOpereFiltered(){
+		List<Opera> filtrato=new ArrayList<>();
+		for(Opera o: this.tutti()) {
+			if(o.getCollezione()==null)
+				filtrato.add(o);
+		}
+		return filtrato;
 	}
 
 	public CredentialsService getCredentialsService() {

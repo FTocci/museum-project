@@ -47,7 +47,7 @@ public class CollezioneController {
     	Collezione c = this.collezioneService.collezionePerId(id);
     	model.addAttribute("collezione", c);
     	model.addAttribute("opera", new Opera());
-    	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
+    	model.addAttribute("opere",collezioneService.getOperaService().getOpereFiltered());
     	model.addAttribute("opereCollezione",c.getOpere());
    
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -83,14 +83,13 @@ public class CollezioneController {
     	o.setCollezione(c);
     	collezioneService.getOperaService().inserisci(o);
     	model.addAttribute("collezione", this.collezioneService.collezionePerId(idCollezione));
-    	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
+    	model.addAttribute("opere",collezioneService.getOperaService().getOpereFiltered());
     	model.addAttribute("opereCollezione",c.getOpere());
     	
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
     	model.addAttribute("credentials", credentials);
     	return "collezione.html";
-    	
     }
     
     @RequestMapping(value = "/admin/rimuoviOpera/{id}", method = RequestMethod.POST)
@@ -101,13 +100,22 @@ public class CollezioneController {
     	o.setCollezione(null);
     	collezioneService.getOperaService().inserisci(o);
     	model.addAttribute("collezione", c);
-    	model.addAttribute("opere",collezioneService.getOperaService().filtraLista(c.getOpere()));
+    	model.addAttribute("opere",collezioneService.getOperaService().getOpereFiltered());
     	model.addAttribute("opereCollezione",c.getOpere());
     	
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credentials credentials = this.collezioneService.getCredentialsService().getCredentials(userDetails.getUsername());
     	model.addAttribute("credentials", credentials);
     	return "collezione.html";
+    }
+    
+    @RequestMapping(value = "/admin/eliminaCollezione/{id}", method = RequestMethod.POST)
+    public String eliminaCollezione(Model model, @PathVariable("id") Long idCollezione) {
+    		
+    		Collezione c=collezioneService.collezionePerId(idCollezione);
+    		collezioneService.eliminaCollezione(c);
+    		model.addAttribute("collezioni", this.collezioneService.tutti());
+    		return "collezioni.html";
     }
     
 }

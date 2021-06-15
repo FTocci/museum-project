@@ -8,8 +8,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Collezione;
+import it.uniroma3.siw.spring.model.Opera;
 import it.uniroma3.siw.spring.repository.CollezioneRepository;
 
 @Service
@@ -70,6 +70,15 @@ public class CollezioneService {
 			return true;
 		else 
 			return false;
+	}
+	
+	@Transactional
+	public void eliminaCollezione(Collezione c) {
+		for(Opera o:c.getOpere()) {
+			o.setCollezione(null);
+			operaService.inserisci(o);
+		}
+		collezioneRepository.delete(c);
 	}
 	
 
