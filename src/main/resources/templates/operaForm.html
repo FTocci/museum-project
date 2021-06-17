@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> </head>
+<link th:href="@{/css/basic.css}" rel="stylesheet">
+
+<head>
+	<title>Inserisci Opera</title>
+</head>
+
 <body>
-	<header> <h1>Siw - Spring Very Simple Demo[Opera]</h1></header>
-	<div>
-		<h4>Inserisci i dati di un'opera</h4>
-	</div>
+	<nav>
+		<p class="titolo">INTERNATIONAL MUSEUM</p>
+	</nav>
 	<form th:action="@{/admin/opera}" method="POST" th:object="${opera}">
+		<h4>Inserisci i dati di un'opera</h4>
 		<div th:if="${#fields.hasGlobalErrors()}">
-  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-		</div>		
+			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
 		<div>
 			<div>
 				<span>Titolo:</span>
 				<span><input type="text" th:field="*{titolo}" /></span>
 				<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
-			</div>		
+			</div>
 			<div>
 				<span>Descrizione:</span>
 				<span><input type="text" th:field="*{descrizione}" /></span>
@@ -26,19 +31,27 @@
 				<span><input type="text" th:field="*{immagine}" /></span>
 				<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
 			</div>
-            <div>
-                <select name="artista" roleId="artista" id="artista" th:field="*{artista}">
-                <option value="">---Artista---</option>
-                <option th:each="artista : ${artisti}"
-                    th:value="${artista.id}"
-                    th:text="${artista.nome}"></option>
-            	</select>
-            </div>
-            <div>
+			<div>
+				<select name="artista" roleId="artista" id="artista" th:field="*{artista}">
+					<option value="">---Artista---</option>
+					<option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="${artista.nome}">
+					</option>
+				</select>
+			</div>
+			<br>
+			<div>
 				<span><button type="submit">Invio</button></span>
 			</div>
 		</div>
 	</form>
-	
+
+	<br>
+	<footer>
+		<div class="footerButton">
+			<a href="/default">Annulla</a>
+		</div>
+	</footer>
+
 </body>
+
 </html>

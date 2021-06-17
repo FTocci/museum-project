@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> </head>
+<link th:href="@{/css/basic.css}" rel="stylesheet">
+
+<head>
+	<title>Inserisci Collezione</title>
+</head>
+
 <body>
-	<header> <h1>Siw - Spring Very Simple Demo[Collezione]</h1></header>
-	<div>
-		<h4>Inserisci i dati di una Collezione</h4>
-	</div>
+	<nav>
+		<p class="titolo">INTERNATIONAL MUSEUM</p>
+	</nav>
+
 	<form th:action="@{/admin/collezione}" method="POST" th:object="${collezione}">
+		<h4>Inserisci i dati di una Collezione</h4>
 		<div th:if="${#fields.hasGlobalErrors()}">
-  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-		</div>		
+			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+		</div>
 		<div>
 			<div>
 				<span>Nome:</span>
 				<span><input type="text" th:field="*{nome}" /></span>
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
-			</div>		
+			</div>
 			<div>
 				<span>Descrizione:</span>
 				<span><input type="text" th:field="*{descrizione}" /></span>
 				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
 			</div>
 			<div>
-                <select name="curatore" id="curatore" th:field="*{curatore}">
-                <option value="">---Curatore---</option>
-                <option th:each="curatore : ${curatori}"
-                    th:value="${curatore.id}"
-                    th:text="${curatore.nome}"></option>
-            	</select>
-            </div>
+				<select name="curatore" id="curatore" th:field="*{curatore}">
+					<option value="">---Curatore---</option>
+					<option th:each="curatore : ${curatori}" th:value="${curatore.id}" th:text="${curatore.nome}">
+					</option>
+				</select>
+			</div>
+			<br>
 			<div>
 				<span><button type="submit">Invio</button></span>
 			</div>
 		</div>
 	</form>
+	<br>
+	<footer>
+		<div class="footerButton">
+			<a href="/default">Annulla</a>
+		</div>
+	</footer>
 </body>
+
 </html>

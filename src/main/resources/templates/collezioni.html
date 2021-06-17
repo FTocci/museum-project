@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head > </head>
+<link th:href="@{/css/basic.css}" rel="stylesheet">
+<head><title>Collezioni</title></head>
 <body>
-	<header >
-		<h1>Siw - Spring Very Simple Demo[Collezioni]</h1>
-	</header>
+	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
 	<div>
     	<h4>Lista di collezioni</h4>
 		<ul>
@@ -15,6 +14,10 @@
 			</li>
 		</ul>
 	</div>
-	<footer><a href="/default">Home</a></footer>
+	<footer>
+		<div class="footerButton">
+			<a href="/default">Home</a>
+		</div>
+	</footer>
 </body>
 </html>

@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head> </head>
+<link th:href="@{/css/basic.css}" rel="stylesheet">
+
+<head>
+    <title>Homepage</title>
+</head>
+
 <body>
-	<header ></header>
     <section>
-        <h4 th:text="#{header.index}">Homepage</h4>
+        <h4 th:text="#{header.index}">HOMEPAGE</h4>
         <h1>Ciao <span th:text="${credentials.username}">qui-va-username</span>!</h1>
-		<div>
+        <div>
             <span th:if="${credentials.role == 'ADMIN'}"><a href="/adminPanel">Admin Panel</a></span>
-        </div>		
-		<div>
+        </div>
+        <div>
             <a href="artista">Elenco artisti</a>
         </div>
-        	
-		<div>
+
+        <div>
             <a href="collezione">Elenco collezioni</a>
         </div>
-        	
-		<div>
+
+        <div>
             <a href="opere">Elenco opere</a>
         </div>
         <div>
-			<a th:href="@{/logout}">Logout</a>
-   		</div>
-        
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+
     </section>
-    <footer></footer>
 </body>
+
 </html>

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head >LOGIN </head>
+<link th:href="@{/css/basic.css}" rel="stylesheet">
+
+<head>
+	<title>Login</title>
+</head>
+
 <body>
-	<header></header>
-	<div>
-		<h4>Login</h4>
-	</div>
 	<form th:action="@{/login}" method="POST">
+		<h4>Login</h4>
 		<div>
 			<div>
 				<span>Username:</span>
 				<span><input name="username" type="text" required /></span>
-			</div>		
+			</div>
 			<div>
 				<span>Password:</span>
 				<span><input name="password" type="password" required /></span>
@@ -21,6 +23,6 @@
 			</div>
 		</div>
 	</form>
-    <footer></footer>
 </body>
+
 </html>
