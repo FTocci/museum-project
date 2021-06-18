@@ -54,6 +54,12 @@ public class AuthenticationController {
         return "home";
     }
     
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String defaultAfterRegistration(Model model) {
+        
+        return "index";
+    }
+    
     @RequestMapping(value = "/adminPanel")
     public String getAdminPanel() {
     	return "/admin/home";
