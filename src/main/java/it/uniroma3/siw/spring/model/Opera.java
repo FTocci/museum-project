@@ -25,6 +25,8 @@ public class Opera {
 	@Column(nullable=false)
 	private String descrizione;
 	
+	private String annoDiRealizzazione;
+	
 	@ManyToOne
 	private Collezione collezione;
 	
@@ -84,7 +86,14 @@ public class Opera {
 		this.collezione = collezione;
 	}
 
+	public String getAnnoDiRealizzazione() {
+		return annoDiRealizzazione;
+	}
 
-	
+	public void setAnnoDiRealizzazione(String annoDiRealizzazione) {
+		this.annoDiRealizzazione = annoDiRealizzazione;
+	}
+
+		
 	
 }

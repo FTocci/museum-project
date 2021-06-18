@@ -32,6 +32,14 @@
 				<span><input type="text" th:field="*{immagine}" /></span>
 				<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
 			</div>
+			<div>
+				<span>Data di nascita:</span>
+				<span><input type="date" th:field="*{dataDiNascita}"/></span>
+			</div>
+			<div>
+				<span>Luogo di nascita:</span>
+				<span><input type="text" th:field="*{luogoDiNascita}"/></span>
+			</div>
 			<br>
 			<div>
 				<span><button type="submit">Invio</button></span>

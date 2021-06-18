@@ -6,9 +6,9 @@
     <div style="display: flex; justify-content: center;">
     	<div th:if="${collezione}" th:object="${collezione}" class="box">
 		<p><b>LA COLLEZIONE:</b></p>
-			<span th:text="*{nome}">qui-va-nome</span><br>
-			<span th:text="*{descrizione}">qui-va-descrizione</span><br>
-			<span th:text="*{curatore.nome}">qui-va-curatore</span>
+			Nome: <span th:text="*{nome}">qui-va-nome</span><br>
+			Descrizione: <span th:text="*{descrizione}">qui-va-descrizione</span><br>
+			Curatore: <span th:text="*{curatore.nome}+' '+ *{curatore.cognome}">qui-va-curatore</span>
    		</div>
 		<div class="box">
 			<p><b>LE OPERE:</b></p>

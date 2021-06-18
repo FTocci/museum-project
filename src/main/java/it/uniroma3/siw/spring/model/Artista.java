@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.model;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -24,10 +26,32 @@ public class Artista {
 	@Column(nullable=false)
 	private String cognome;
 	
+	@Column(nullable=false)
+	private Date dataDiNascita;
+	
+	@Column(nullable=false)
+	private String luogoDiNascita;
+	
 	private String immagine;
 	
 	@OneToMany(mappedBy="artista")
 	private List<Opera> opere;
+	
+	public Date getDataDiNascita() {
+		return dataDiNascita;
+	}
+
+	public void setDataDiNascita(Date dataDiNascita) {
+		this.dataDiNascita = dataDiNascita;
+	}
+
+	public String getLuogoDiNascita() {
+		return luogoDiNascita;
+	}
+
+	public void setLuogoDiNascita(String luogoDiNascita) {
+		this.luogoDiNascita = luogoDiNascita;
+	}
 	
 	public long getId() {
 		return id;

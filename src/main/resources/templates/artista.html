@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<link th:href="@{/css/artistaCSS.css}" rel="stylesheet">
-	<head></head>
+	<head>
+		<title>Artista</title>
+	</head>
 <body>
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
     <section>
 		<div th:if="${artista}" th:object="${artista}" class="flex-container">
 			<div><img th:src="@{${'/images/'+artista.immagine}}"/></div>
 			<div class="info">
-				<span th:text="*{nome}">qui-va-nome</span>
-				<span th:text="*{cognome}">qui-va-cognome</span>
+				Nome:<span th:text="*{nome}">qui-va-nome</span><br>
+				Cognome:<span th:text="*{cognome}">qui-va-cognome</span><br>
+				Data di Nascita:<span th:text="*{dataDiNascita}">qui-va-dataNascita</span><br>
+				Luogo di Nascita:<span th:text="*{luogoDiNascita}">qui-va-luogoNascita</span><br>
+
 			</div>
 		</div>
 		

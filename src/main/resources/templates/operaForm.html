@@ -32,9 +32,14 @@
 				<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
 			</div>
 			<div>
+				<span>Anno di realizzazione:</span>
+				<span><input type="text" th:field="*{annoDiRealizzazione}" /></span>
+			</div>
+			<br>
+			<div>
 				<select name="artista" roleId="artista" id="artista" th:field="*{artista}">
 					<option value="">---Artista---</option>
-					<option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="${artista.nome}">
+					<option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="${artista.nome} ${artista.cognome}">
 					</option>
 				</select>
 			</div>

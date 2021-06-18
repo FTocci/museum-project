@@ -10,7 +10,7 @@
 			<li th:each="opera : ${opere}">
 				<a href="opera.html" 
 				   th:href="@{'/opera' + '/' + ${opera.id}}" 
-				   th:text="|${opera.titolo} ${opera.descrizione}|"></a>
+				   th:text="${opera.titolo}"></a>
 			</li>
 		</ul>
 	</div>
