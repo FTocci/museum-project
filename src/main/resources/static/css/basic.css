@@ -1,6 +1,9 @@
-body{
-	background-color:#EDE0D4;
-}
+html { 
+	background: url(/images/background.jpg) no-repeat center center fixed;
+	background-size: cover;
+	height: 100%;
+	overflow: hidden;
+  }
 nav{
 	height: 75px;
 	background-color: #E6CCB2;
@@ -29,5 +32,34 @@ footer{
 
 form{
     border: 2px solid;
-    padding: 5px;
+    padding: 10px;
+	padding-left: 40px;
+}
+
+section{
+	text-align: center;
+}
+
+.button {
+	display: inline-block;
+	padding: 15px 25px;
+	font-size: 24px;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: gray;
+	border: none;
+	border-radius: 15px;
+	box-shadow: 0 9px #999;
+	margin-bottom: 20px;
+  }
+  
+.button:hover {background-color: darkgray}
+  
+.button:active {
+	background-color: gray;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
 }

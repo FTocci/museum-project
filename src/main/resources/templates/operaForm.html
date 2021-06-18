@@ -39,7 +39,7 @@
 			<div>
 				<select name="artista" roleId="artista" id="artista" th:field="*{artista}">
 					<option value="">---Artista---</option>
-					<option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="${artista.nome} ${artista.cognome}">
+					<option th:each="artista : ${artisti}" th:value="${artista.id}" th:text="${artista.nome} +' '+ ${artista.cognome}">
 					</option>
 				</select>
 			</div>

@@ -10,34 +10,26 @@
     <section>
         <h4 th:text="#{header.index}">Menu</h4>
         <div>
-            <a href="/admin/addArtista">Inserisci dati artista</a>
+           <a href="/admin/addArtista"><button class="button">Inserisci dati artista</button></a>
+        </div>
+       
+        <div>
+            <a href="/admin/addCollezione"><button class="button">Inserisci dati collezione</button></a>
+        </div>
+      
+        <div>
+            <a href="/admin/addOpera"><button class="button">Inserisci dati opera</button></a>
         </div>
         <div>
-            <a href="artista">Elenco artisti</a>
+            <a href="/default"><button class="button">Torna indietro</button> </a>
         </div>
+      
         <div>
-            <a href="/admin/addCollezione">Inserisci dati collezione</a>
-        </div>
-        <div>
-            <a href="collezione">Elenco collezioni</a>
-        </div>
-        <div>
-            <a href="/admin/addOpera">Inserisci dati opera</a>
-        </div>
-        <div>
-            <a href="opere">Elenco opere</a>
-        </div>
-        <div>
-            <a th:href="@{/logout}">Logout</a>
+            <a th:href="@{/logout}"><button class="button">Logout</button></a>
         </div>
 
     </section>
     <br>
-    <footer>
-		<div class="footerButton">
-			<a href="/default">Home</a>
-		</div>
-	</footer>
 </body>
 
 </html>
