@@ -6,8 +6,8 @@
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
 	<header>	
 		<div class="headerButtons">
-			<a th:href="@{/login}" th:text="#{index.login}">Accedi</a>
-			<a th:href="@{/register}" th:text="#{index.register}">Registrati</a>	
+			<button><a th:href="@{/login}" th:text="#{index.login}">Accedi</a></button>
+			<button><a th:href="@{/register}" th:text="#{index.register}">Registrati</a></button>	
 		</div>	
 	</header>
 	<section>
@@ -19,12 +19,6 @@
 			<li><img th:src="@{${'/images/UltimaCena.jpg'}}"/><span>Ultima cena</span></li>
 			</ul>
 		</div>
-		<!--<div class="flex-container">
-			<img th:src="@{${'/images/erPupone.jpeg'}}"/>
-			<img th:src="@{${'/images/sea.jpeg'}}"/>
-			<img th:src="@{${'/images/erPupone.jpeg'}}"/>
-			<img th:src="@{${'/images/sea.jpeg'}}"/>
-		</div>-->
 	</section>
     <footer></footer>
 </body>
