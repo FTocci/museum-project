@@ -1,6 +1,11 @@
 body{
 	background-color:#EDE0D4;
 }
+
+a{
+    text-decoration:none;
+}
+
 nav{
 	height: 75px;
 	background-color: #E6CCB2;
