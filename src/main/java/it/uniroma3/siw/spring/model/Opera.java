@@ -94,6 +94,31 @@ public class Opera {
 		this.annoDiRealizzazione = annoDiRealizzazione;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((titolo == null) ? 0 : titolo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Opera other = (Opera) obj;
+		if (titolo == null) {
+			if (other.titolo != null)
+				return false;
+		} else if (!titolo.equals(other.titolo))
+			return false;
+		return true;
+	}
+
 		
 	
 }

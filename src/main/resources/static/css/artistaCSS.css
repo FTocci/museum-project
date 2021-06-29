@@ -4,6 +4,11 @@ body{
 a{
     text-decoration:none;
 }
+
+section{
+	margin-top: 20px;
+}
+
 nav{
 	height: 75px;
 	background-color: #E6CCB2;

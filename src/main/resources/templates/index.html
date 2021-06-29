@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<link th:href="@{/css/homeCSS.css}" rel="stylesheet">
-	<head></head>
+<link th:href="@{/css/homeCSS.css}" rel="stylesheet">
+
+<head></head>
+
 <body>
-	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-	<header>	
+	<nav>
+		<p class="titolo">INTERNATIONAL MUSEUM</p>
+	</nav>
+	<header>
 		<div class="headerButtons">
 			<button><a th:href="@{/login}" th:text="#{index.login}">Accedi</a></button>
-			<button><a th:href="@{/register}" th:text="#{index.register}">Registrati</a></button>	
-		</div>	
-	</header>
-	<section>
-		<div id="scroll">
-			<ul>
-			<li><img th:src="@{${'/images/Gioconda.jpg'}}"/><span>La Gioconda</span></li>
-			<li><img th:src="@{${'/images/SalvadorMundi.jpg'}}"/><span>Salvator Mundi</span></li>
-			<li><img th:src="@{${'/images/UomoVitruviano.jpg'}}"/><span>Uomo vitruviano</span></li>
-			<li><img th:src="@{${'/images/CappellaDiSanSevero.jpg'}}"/><span>Cappella di San Severo</span></li>
-			<li><img th:src="@{${'/images/GiudizioDiSalomone.jpg'}}"/><span>Giudizio di Salomone</span></li>
-			<li><img th:src="@{${'/images/MadonnaDiCasaSanti.jpg'}}"/><span>Madonna di Casa Santi</span></li>
-			</ul>
+			<button><a th:href="@{/register}" th:text="#{index.register}">Registrati</a></button>
 		</div>
-	</section>
-    <footer></footer>
+	</header>
+	<div style="display: flex; justify-content: center; margin: 20px;">
+		<div>
+			<div class="container">
+				<img th:src="@{${'/images/Gioconda.jpg'}}" />
+				<div class="overlay">
+					<div class="text">La Gioconda</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<img th:src="@{${'/images/SalvadorMundi.jpg'}}" />
+				<div class="overlay">
+					<div class="text">Salvator Mundi</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<img th:src="@{${'/images/UomoVitruviano.jpg'}}" />
+				<div class="overlay">
+					<div class="text">Uomo vitruviano</div>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div class="container">
+				<img th:src="@{${'/images/CappellaDiSanSevero.jpg'}}" />
+				<div class="overlay">
+					<div class="text">Cappella di San Severo</div>
+				</div>
+			</div>
+			<div class="container">
+				<img th:src="@{${'/images/GiudizioDiSalomone.jpg'}}" />
+				<div class="overlay">
+					<div class="text">Giudizio di Salomone</div>
+				</div>
+			</div>
+			<div class="container">
+				<img th:src="@{${'/images/MadonnaDiCasaSanti.jpg'}}" />
+				<div class="overlay">
+					<div class="text">Madonna di Casa Santi</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer></footer>
 </body>
+
 </html>

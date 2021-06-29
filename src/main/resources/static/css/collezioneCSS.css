@@ -8,6 +8,10 @@ nav{
 	font-size:30px;
 	font-family:Arial;
 }
+section{
+	margin-top: 20px;
+}
+
 a{
     text-decoration:none;
 }

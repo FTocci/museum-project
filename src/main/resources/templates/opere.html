@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<link th:href="@{/css/basic.css}" rel="stylesheet">
-	<head><title>Opere</title></head>
+<link th:href="@{/css/basic.css}" rel="stylesheet">
+
+<head>
+	<title>Opere</title>
+</head>
+
 <body>
-	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-	<div>
-    	<h4>List of artworks</h4>
+	<nav>
+		<p class="titolo">INTERNATIONAL MUSEUM</p>
+	</nav>
+	<div style="font-size: 20px;">
+		<h4>List of artworks</h4>
 		<ul>
 			<li th:each="opera : ${opere}">
-				<a href="opera.html" 
-				   th:href="@{'/opera' + '/' + ${opera.id}}" 
-				   th:text="${opera.titolo}"></a>
+				<a href="opera.html" th:href="@{'/opera' + '/' + ${opera.id}}" th:text="${opera.titolo}"></a>
 			</li>
 		</ul>
 	</div>
-	<footer>
-		<div class="footerButton">
-			<a href="/default">Home</a>
-		</div>
-	</footer>
+
+	<button><a href="/default">Home</a></button>
+
 
 </body>
+
 </html>

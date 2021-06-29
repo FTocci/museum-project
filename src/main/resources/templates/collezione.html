@@ -6,9 +6,9 @@
     <div style="display: flex; justify-content: center;">
     	<div th:if="${collezione}" th:object="${collezione}" class="box">
 		<p><b>LA COLLEZIONE:</b></p>
-			Nome: <span th:text="*{nome}">qui-va-nome</span><br>
-			Descrizione: <span th:text="*{descrizione}">qui-va-descrizione</span><br>
-			Curatore: <span th:text="*{curatore.nome}+' '+ *{curatore.cognome}">qui-va-curatore</span>
+			<b>Nome: </b><span th:text="*{nome}">qui-va-nome</span><br>
+			<b>Descrizione: </b><span th:text="*{descrizione}">qui-va-descrizione</span><br>
+			<b>Curatore: </b><span th:text="*{curatore.nome}+' '+ *{curatore.cognome}">qui-va-curatore</span>
    		</div>
 		<div class="box">
 			<p><b>LE OPERE:</b></p>
@@ -56,13 +56,11 @@
 
     	<div th:unless="${collezione}">Non esiste</div>
     </div>
+	<br>
 	<form th:if="${credentials.role == 'ADMIN'}" th:action="@{'/admin/eliminaCollezione' + '/' + ${collezione.id}}" method="POST">
 		<button type="submit" th:text="#{elimina.collezione}"></button>
 	</form>
-	<footer>
-		<div class="footerButton">
-			<a href="/default">Home</a>
-		</div>
-	</footer>
+	<br>
+	<button><a href="/default">Home</a></button>
 </body>
 </html>

@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<link th:href="@{/css/artistaCSS.css}" rel="stylesheet">
-	<head>
-		<title>Artista</title>
-	</head>
+<link th:href="@{/css/artistaCSS.css}" rel="stylesheet">
+
+<head>
+	<title>Artista</title>
+</head>
+
 <body>
-	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-    <section>
+	<nav>
+		<p class="titolo">INTERNATIONAL MUSEUM</p>
+	</nav>
+	<section>
 		<div th:if="${artista}" th:object="${artista}" class="flex-container">
-			<div><img th:src="@{${'/images/'+artista.immagine}}"/></div>
+			<div><img th:src="@{${'/images/'+artista.immagine}}" /></div>
 			<div class="info">
-				Nome:<span th:text="*{nome}">qui-va-nome</span><br>
-				Cognome:<span th:text="*{cognome}">qui-va-cognome</span><br>
-				Data di Nascita:<span th:text="*{dataDiNascita}">qui-va-dataNascita</span><br>
-				Luogo di Nascita:<span th:text="*{luogoDiNascita}">qui-va-luogoNascita</span><br>
+				<b>Nome: </b><span th:text="*{nome}">qui-va-nome</span><br>
+				<b>Cognome: </b><span th:text="*{cognome}">qui-va-cognome</span><br>
+				<b>Data di Nascita: </b><span th:text="*{dataDiNascita}">qui-va-dataNascita</span><br>
+				<b>Luogo di Nascita: </b><span th:text="*{luogoDiNascita}">qui-va-luogoNascita</span><br>
 
 			</div>
 		</div>
-		
+
 		<div style="border: 2px solid; margin-bottom: 50px; margin-top: 20px;">
-			<h1>Le opere</h1>	
+			<h1>Le opere</h1>
 			<div>
 				<ul>
 					<li th:each="opera : ${opereArtista}">
-						<a href="opera.html" 
-						   th:href="@{'/opera' + '/' + ${opera.id}}" 
-						   th:text="|${opera.titolo}|"
-						   th:value="${opera.id}"></a>
+						<a href="opera.html" th:href="@{'/opera' + '/' + ${opera.id}}" th:text="|${opera.titolo}|"
+							th:value="${opera.id}"></a>
 					</li>
 				</ul>
 			</div>
 			<div th:unless="${artista}">Non esiste</div>
 		</div>
 	</section>
-
-	<footer>
-		<div class="footerButton">
-			<a href="/default">Home</a>
-		</div>
-	</footer>
+	<br>
+	<button><a href="/default">Home</a></button>
 
 </body>
+
 </html>
