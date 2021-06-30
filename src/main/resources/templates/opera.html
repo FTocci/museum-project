@@ -14,7 +14,7 @@
 				<b>Descrizione: </b><span th:text="*{descrizione}">qui-va-descrizione</span><br>
 				<b>Anno di realizzazione: </b><span th:text="*{annoDiRealizzazione}">qui-va-anno</span><br>
 
-				Artista: <span>
+				<b>Artista: </b><span>
 					<a href="artista.html" th:href="@{'/artista' + '/' + ${artista.id}}"
 						th:text="|${artista.nome} ${artista.cognome}|"></a>
 				</span>

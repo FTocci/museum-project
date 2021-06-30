@@ -11,48 +11,42 @@
 		<p class="titolo">INTERNATIONAL MUSEUM</p>
 	</nav>
 
-	<form th:action="@{/admin/artista}" method="POST" th:object="${artista}">
+	<form th:action="@{/admin/artista}" method="POST" th:object="${artista}" class="inserimento">
 		<h4>Inserisci i dati di un artista</h4>
 		<div th:if="${#fields.hasGlobalErrors()}">
 			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 		</div>
 		<div>
 			<div>
-				<span>Nome:</span>
+				<label>Nome:</label>
 				<span><input type="text" th:field="*{nome}" /></span>
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 			</div>
 			<div>
-				<span>Cognome:</span>
+				<label>Cognome:</label>
 				<span><input type="text" th:field="*{cognome}" /></span>
 				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
 			</div>
 			<div>
-				<span>Immagine:</span>
+				<label>Immagine:</label>
 				<span><input type="text" th:field="*{immagine}" /></span>
 				<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
 			</div>
 			<div>
-				<span>Data di nascita:</span>
+				<label>Data di nascita:</label>
 				<span><input type="date" th:field="*{dataDiNascita}"/></span>
 			</div>
 			<div>
-				<span>Luogo di nascita:</span>
+				<label>Luogo di nascita:</label>
 				<span><input type="text" th:field="*{luogoDiNascita}"/></span>
 			</div>
 			<br>
 			<div>
 				<span><button type="submit">Invio</button></span>
+				<span><button><a href="/default">Annulla</a></button></span>
 			</div>
 		</div>
 	</form>
-	<br>
-	<footer>
-		<div class="footerButton">
-			<a href="/default">Annulla</a>
-		</div>
-	</footer>
-
 </body>
 
 </html>

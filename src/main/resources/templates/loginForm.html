@@ -7,22 +7,27 @@
 </head>
 
 <body>
-	<form th:action="@{/login}" method="POST">
-		<h4>Login</h4>
-		<div>
+	<div>
+		<form th:action="@{/login}" method="POST" class="accesso">
+			<h1>LOGIN</h1>
 			<div>
-				<span>Username:</span>
-				<span><input name="username" type="text" required /></span>
+				<div>
+					<span><input name="username" type="text" placeholder="username" required /></span>
+				</div>
+				<br>
+				<div>
+					<span><input name="password" type="password" placeholder="password" required /></span>
+				</div>
+				<br>
+				<div>
+					<span><button style="border-radius: 10px 10px 10px 10px;width:100px;height: 40px;" type="submit">
+							Accedi
+						</button>
+					</span>
+				</div>
 			</div>
-			<div>
-				<span>Password:</span>
-				<span><input name="password" type="password" required /></span>
-			</div>
-			<div>
-				<span><button type="submit">Login</button></span>
-			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 </body>
 
 </html>

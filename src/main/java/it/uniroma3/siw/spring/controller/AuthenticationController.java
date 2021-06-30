@@ -60,7 +60,7 @@ public class AuthenticationController {
         return "index";
     }
     
-    @RequestMapping(value = "/adminPanel")
+    @RequestMapping(value = "/admin/adminPanel")
     public String getAdminPanel() {
     	return "/admin/home";
     }

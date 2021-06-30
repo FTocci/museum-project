@@ -5,12 +5,12 @@
 <body>
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
 	<div style="font-size: 20px;">
-    	<h4>List of artists</h4>
+    	<h4>Lista di artisti</h4>
 		<ul>
 			<li th:each="artista : ${artisti}">
 				<a href="artista.html" 
 				   th:href="@{'/artista' + '/' + ${artista.id}}" 
-				   th:text="|${artista.nome} ${artista.cognome}|">Paolo Rossi</a>
+				   th:text="|${artista.nome} ${artista.cognome}|"></a>
 			</li>
 		</ul>
 	</div>

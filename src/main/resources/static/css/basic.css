@@ -3,6 +3,7 @@ html {
 	background-size: cover;
 	height: 100%;
 	overflow: hidden;
+	font-family:Arial;
 }
 a{
     text-decoration:none;
@@ -12,7 +13,6 @@ nav{
 	background-color: #E6CCB2;
 	text-align:center;
 	font-size:30px;
-	font-family:Arial;
 }
 
 .titolo{
@@ -22,10 +22,21 @@ nav{
 	font-size:40px;
 }
 
-form{
-    border: 2px solid;
+form.accesso{
+	margin-top: 150px;
     padding: 10px;
 	padding-left: 40px;
+	text-align: center;
+}
+
+form.inserimento{
+	margin-top: 10px;
+}
+
+input{
+	width: 250px;
+	height: 30px;
+	margin:5px;
 }
 
 section{
@@ -40,18 +51,18 @@ section{
 	text-align: center;
 	text-decoration: none;
 	outline: none;
-	color: #fff;
-	background-color: gray;
+	color: black;
+	background-color: #fccc27;
 	border: none;
 	border-radius: 15px;
-	box-shadow: 0 9px #999;
+	box-shadow: 0 9px #fdd880;
 	margin-bottom: 20px;
   }
   
-.button:hover {background-color: darkgray}
+.button:hover {background-color: orange}
   
 .button:active {
-	background-color: gray;
-	box-shadow: 0 5px #666;
+	background-color: #fccc27;
+	box-shadow: 0 5px #fdd880;
 	transform: translateY(4px);
 }

@@ -1,15 +1,15 @@
 body{
-	background-color:#EDE0D4;
+	background-color:#fdd880;
+	font-family:Arial;
 }
 a{
     text-decoration:none;
 }
 nav{
 	height: 75px;
-	background-color: #E6CCB2;
+	background-color: #fda621;
 	text-align:center;
 	font-size:30px;
-	font-family:Arial;
 }
 .titolo{
 	padding-top:15px;
@@ -18,12 +18,19 @@ nav{
 	font-size:40px;
 }
 header{
-	height: 50px;
-	background-color:#DDB892;
+	height: 70px;
+	background-color:#fe730a;
 }
 .headerButtons{
+	font-family:Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
 	padding-top: 15px;
 	padding-left: 15px;
+}
+
+button{
+	border-radius: 10px 10px 10px 10px;
+	width:100px;
+	height: 40px;
 }
 
 .flex-container{
@@ -38,7 +45,7 @@ img{
 
 footer{
 	height:100px;
-	background-color:#B08968;
+	background-color:#ffbf41;
 }
 
 
@@ -52,7 +59,7 @@ footer{
 	width: 100%;
 	opacity: 0;
 	transition: .5s ease;
-	background-color: #B08968;
+	background-color: #fe730a;
   }
   
   .container:hover .overlay {

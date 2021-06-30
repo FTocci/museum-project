@@ -11,7 +11,7 @@
 		<p class="titolo">INTERNATIONAL MUSEUM</p>
 	</nav>
 
-	<form th:action="@{/admin/collezione}" method="POST" th:object="${collezione}">
+	<form th:action="@{/admin/collezione}" method="POST" th:object="${collezione}" class="inserimento">
 		<h4>Inserisci i dati di una Collezione</h4>
 		<div th:if="${#fields.hasGlobalErrors()}">
 			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
@@ -28,6 +28,7 @@
 				<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
 			</div>
 			<div>
+				Curatore:
 				<select name="curatore" id="curatore" th:field="*{curatore}">
 					<option value="">---Curatore---</option>
 					<option th:each="curatore : ${curatori}" th:value="${curatore.id}" th:text="${curatore.nome}">
@@ -37,15 +38,11 @@
 			<br>
 			<div>
 				<span><button type="submit">Invio</button></span>
+				<button><a href="/default">Annulla</a></button>
 			</div>
 		</div>
 	</form>
-	<br>
-	<footer>
-		<div class="footerButton">
-			<a href="/default">Annulla</a>
-		</div>
-	</footer>
+
 </body>
 
 </html>
