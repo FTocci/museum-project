@@ -4,8 +4,8 @@
 	<head><title>Artisti</title></head>
 <body>
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-	<div style="font-size: 20px;">
-    	<h4>Lista di artisti</h4>
+	<div class="contenuto">
+    	<h4>Artisti</h4>
 		<ul>
 			<li th:each="artista : ${artisti}">
 				<a href="artista.html" 
@@ -14,7 +14,7 @@
 			</li>
 		</ul>
 	</div>
-	<button><a href="/default">Home</a></button>
+	<div class="homeButton"><a href="/default"><img src="/images/home-icon.png"></a></div>
 
 </body>
 </html>

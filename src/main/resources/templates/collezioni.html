@@ -4,7 +4,7 @@
 <head><title>Collezioni</title></head>
 <body>
 	<nav><p class="titolo">INTERNATIONAL MUSEUM</p></nav>
-	<div style="font-size:20px">
+	<div class="contenuto">
     	<h4>Lista di collezioni</h4>
 		<ul>
 			<li th:each="collezione : ${collezioni}">
@@ -14,6 +14,6 @@
 			</li>
 		</ul>
 	</div>
-	<button><a href="/default">Home</a></button>
+	<div class="homeButton"><a href="/default"><img src="/images/home-icon.png"></a></div>
 </body>
 </html>

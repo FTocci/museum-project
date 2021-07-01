@@ -1,9 +1,15 @@
-body{
-	background-color:#EDE0D4;
+html{
+	background: url(/images/background2.png) no-repeat center center fixed;
+	background-size: cover;
+	height: 100%;
+	overflow: auto;
+	font-family:Arial;
+	color: white;
 }
+
 nav{
 	height: 75px;
-	background-color: #E6CCB2;
+	background-color: white;
 	text-align:center;
 	font-size:30px;
 	font-family:Arial;
@@ -20,6 +26,7 @@ a{
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:bold;
 	font-size:40px;
+	color: black;
 }
 
 .flex-container{
@@ -30,8 +37,7 @@ a{
 }
 
 img{
-	margin:15px;
-	height:300px;
+	height:30px;
 }
 
 footer{
@@ -57,4 +63,11 @@ footer{
     border: 2px solid;
     width: 300px;
     padding: 10px;
+}
+
+.homeButton{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	
 }

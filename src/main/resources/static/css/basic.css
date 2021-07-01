@@ -10,7 +10,7 @@ a{
 }
 nav{
 	height: 75px;
-	background-color: #E6CCB2;
+	background-color: #fdd880;
 	text-align:center;
 	font-size:30px;
 }
@@ -42,6 +42,10 @@ input{
 section{
 	text-align: center;
 }
+.contenuto{
+	font-size: 20px; 
+	text-align: center;
+}
 
 .button {
 	display: inline-block;
@@ -65,4 +69,16 @@ section{
 	background-color: #fccc27;
 	box-shadow: 0 5px #fdd880;
 	transform: translateY(4px);
+}
+
+li{
+	list-style:none;
+	margin-bottom: 10px;
+}
+
+.homeButton{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	
 }

@@ -8,7 +8,7 @@
 	</nav>
 	<section>
 		<div th:if="${opera}" th:object="${opera}" class="flex-container">
-			<div><img th:src="@{${'/images/'+opera.immagine}}" /></div>
+			<div><img class="profilo" th:src="@{${'/images/'+opera.immagine}}" /></div>
 			<div class="info">
 				<b>Titolo: </b><span th:text="*{titolo}">qui-va-titolo</span><br>
 				<b>Descrizione: </b><span th:text="*{descrizione}">qui-va-descrizione</span><br>
@@ -28,8 +28,7 @@
 		</form>
 	</section>
 	<br>
-	<button><a href="/default">Home</a></button>
-
+	<div class="homeButton"><a href="/default"><img src="/images/home-icon.png"></a></div>
 </body>
 
 </html>
