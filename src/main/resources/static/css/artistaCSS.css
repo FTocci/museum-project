@@ -37,7 +37,7 @@ nav{
      margin-right: 50px;
 }
 
-img{
+img.profilo{
 	margin:15px;
 	height:300px;
 }
@@ -59,7 +59,7 @@ footer{
 }
 
 .homeButton{
-	position: absolute;
+	position:static;
 	right: 5px;
 	bottom: 5px;	
 }

@@ -12,7 +12,7 @@
 	</nav>
 	<section>
 		<div th:if="${artista}" th:object="${artista}" class="flex-container">
-			<div><img th:src="@{${'/images/'+artista.immagine}}" /></div>
+			<div><img th:src="@{${'/images/'+artista.immagine}}" class="profilo"/></div>
 			<div class="info">
 				<b>Nome: </b><span th:text="*{nome}">qui-va-nome</span><br>
 				<b>Cognome: </b><span th:text="*{cognome}">qui-va-cognome</span><br>
