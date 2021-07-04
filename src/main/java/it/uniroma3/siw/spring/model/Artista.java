@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @NamedQuery(name = "findAllArtists", query = "SELECT a FROM Artista a")
 public class Artista {
@@ -26,8 +28,9 @@ public class Artista {
 	@Column(nullable=false)
 	private String cognome;
 	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(nullable=false)
-	private Date dataDiNascita;
+	private LocalDate dataDiNascita;
 	
 	@Column(nullable=false)
 	private String luogoDiNascita;
@@ -37,11 +40,11 @@ public class Artista {
 	@OneToMany(mappedBy="artista")
 	private List<Opera> opere;
 	
-	public Date getDataDiNascita() {
+	public LocalDate getDataDiNascita() {
 		return dataDiNascita;
 	}
 
-	public void setDataDiNascita(Date dataDiNascita) {
+	public void setDataDiNascita(LocalDate dataDiNascita) {
 		this.dataDiNascita = dataDiNascita;
 	}
 

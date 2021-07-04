@@ -16,7 +16,7 @@
 			<div class="info">
 				<b>Nome: </b><span th:text="*{nome}">qui-va-nome</span><br>
 				<b>Cognome: </b><span th:text="*{cognome}">qui-va-cognome</span><br>
-				<b>Data di Nascita: </b><span th:text="*{dataDiNascita}">qui-va-dataNascita</span><br>
+				<b>Data di Nascita: </b><span th:text="${#temporals.format(artista.dataDiNascita,'dd/MM/yyyy')}">qui-va-dataNascita</span><br>
 				<b>Luogo di Nascita: </b><span th:text="*{luogoDiNascita}">qui-va-luogoNascita</span><br>
 
 			</div>
