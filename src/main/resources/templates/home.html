@@ -11,21 +11,24 @@
         <h4 th:text="#{header.index}">HOMEPAGE</h4>
         <h1>Ciao <span th:text="${credentials.username}">qui-va-username</span>!</h1>
         <div>
-            <span th:if="${credentials.role == 'ADMIN'}"><a href="/admin/adminPanel"><button class="button">Admin Panel</button></a></span>
+            <span th:if="${credentials.role == 'ADMIN'}"><a href="/admin/adminPanel"><button class="button">Admin
+                        Panel</button></a></span>
         </div>
         <div>
             <a href="artista"><button class="button">Elenco artisti</button></a>
         </div>
 
         <div>
-             <a href="collezione"><button class="button">Elenco collezioni</button></a>
+            <a href="collezione"><button class="button">Elenco collezioni</button></a>
         </div>
 
         <div>
             <a href="opere"><button class="button"> Elenco opere</button></a>
         </div>
         <div>
-           <a th:href="@{/logout}"> <button class="button"> Logout</button></a>
+            <form th:action="@{/logout}" method="POST">
+                <button class="button"> Logout</button>
+            </form>
         </div>
 
     </section>
